@@ -1,0 +1,52 @@
+INNER JOIN (Returns matching records in both tables)
+Find all students along with their professor details
+SELECT 
+    s.student_num, s.student_fname, s.student_lname, s.stu_email, s.dept_code,
+    p.prof_num, p.prof_fname, p.prof_lname, p.prof_email, p.prof_specialty
+FROM Student s
+INNER JOIN Professor p ON s.prof_num = p.prof_num;
+
+LEFT JOIN (Returns all students, even if they don’t have an assigned professor)
+List all students and their professors (if assigned), showing NULL where missing
+
+SELECT 
+    s.student_num, s.student_fname, s.student_lname, s.stu_email, s.dept_code,
+    p.prof_num, p.prof_fname, p.prof_lname, p.prof_email
+FROM Student s
+LEFT JOIN Professor p ON s.prof_num = p.prof_num;
+
+RIGHT JOIN (Returns all professors, even if they don’t have students)
+List all professors and their assigned students (if any)
+
+SELECT 
+    s.student_num, s.student_fname, s.student_lname, s.stu_email, s.dept_code,
+    p.prof_num, p.prof_fname, p.prof_lname, p.prof_email
+FROM Student s
+RIGHT JOIN Professor p ON s.prof_num = p.prof_num;
+
+ FULL OUTER JOIN (Returns all students and all professors, even if no match exists)
+SELECT 
+    s.student_num, s.student_fname, s.student_lname, s.stu_email, s.dept_code,
+    p.prof_num, p.prof_fname, p.prof_lname, p.prof_email
+FROM Student s
+FULL OUTER JOIN Professor p ON s.prof_num = p.prof_num;
+
+ CROSS JOIN (Returns all possible combinations of students and professors)
+SELECT 
+    s.student_num, s.student_fname, s.student_lname, 
+    p.prof_num, p.prof_fname, p.prof_lname
+FROM Student s
+CROSS JOIN Professor p;
+
+SELF JOIN (If needed for relationships within the same table)
+For example, if professors have mentors, you can join the Professor table to itself:
+SELECT 
+    p1.prof_num AS professor_1_id, p1.prof_fname AS professor_1_name, 
+    p2.prof_num AS professor_2_id, p2.prof_fname AS professor_2_name,
+    p1.dept_code
+FROM Professor p1
+JOIN Professor p2 
+    ON p1.dept_code = p2.dept_code  -- Professors in the same department
+    AND p1.prof_num <> p2.prof_num; -- Avoid pairing the same professor
+
+

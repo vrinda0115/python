@@ -1,0 +1,6 @@
+Food Item,Category,Stock Quantity,Expiry Date,Supplier,Storage Location,Issue Reported,Root Cause,Corrective Action
+Milk,Perishable,20,4/10/2025,Dairy Co.,Refrigerated,Expired Stock,Late Usage,Improve Inventory Rotation
+Rice,Non-Perishable,50,1/1/2026,Grain Supplies,Dry Storage,None,N/A,N/A
+Chicken,Perishable,15,4/5/2025,Meat Distributors,Frozen,Spoilage,Improper Freezing,Check Freezer Temperature
+Apples,Perishable,30,4/12/2025,Farm Fresh,Refrigerated,Bruised,Rough Handling,Handle with Care
+Canned Beans,Non-Perishable,40,6/15/2027,Canned Goods Ltd.,Dry Storage,None,N/A,N/A
